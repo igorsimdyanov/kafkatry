@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 1 } %>
+  reconnect: true
+
+development:
+  <<: *default
+  database: kafkatry_development
+
+test:
+  <<: *default
+  database: kafkatry_test
+
+staging:
+  <<: *default
+  database: kafkatry_staging
+
+production:
+  <<: *default
+  pool: 1
+  database: kafkatry
